@@ -25,5 +25,5 @@ This is a basic ASP.NET Core MVC application built with .NET 9. It demonstrates 
 
 Here is a screenshot of the application's product list page:
 
-
+https://github.com/jomuch/MvcProductApp/blob/86882d98cf265428eb5f9774c0cc180b40164179/MvcProductApp/mvcproductssrnshot.png
 *(To include the screenshot, drag the image file into your repository on GitHub and update the path above.)*
