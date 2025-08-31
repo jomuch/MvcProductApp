@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MvcProductApp.Data;
-using MvcProductApp.Services; // Add this using statement
+using MvcProductApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Register your new service with a Scoped lifetime
+// Register the IProductService with a Scoped lifetime
 builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
