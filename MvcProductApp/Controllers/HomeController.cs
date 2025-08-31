@@ -1,20 +1,27 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MvcProductApp.Models;
+using MvcProductApp.Services; // Add this using statement
+using System.Diagnostics;
 
 namespace MvcProductApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductService _productService; // Add this field
 
-        public HomeController(ILogger<HomeController> logger)
+        // Update the constructor to accept IProductService
+        public HomeController(ILogger<HomeController> logger, IProductService productService)
         {
             _logger = logger;
+            _productService = productService;
         }
 
+        // Update the Index action to use the service
         public IActionResult Index()
         {
+            var featuredProduct = _productService.GetFeaturedProduct();
+            ViewData["FeaturedProduct"] = featuredProduct?.Name ?? "No products yet!";
             return View();
         }
 
